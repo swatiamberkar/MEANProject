@@ -14,6 +14,9 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 app.use('/', appRoutes);
 
+const path = require('path');
+app.use('/', express.static(path.join(__dirname, '../MeanFrontend/dist/mean-frontend')));
+
 
 http.createServer(app).listen(port)
 console.log('Backend running on port', port);
